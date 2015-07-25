@@ -15,6 +15,15 @@
         <li><%= link_to "About", "/about" %></li>
         <li><%= link_to "Contact", "/contact" %></li>
       </ul>
+      <ul class="nav navbar-nav pull-right">
+        <% if !logged_in? %>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Register", new_user_path %></li>
+        <% else %>
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% end %>
+      </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
