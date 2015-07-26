@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get     'available-jobs'  => 'jobs#available_jobs', as: :available_jobs
   resources :jobs
 
+  post    'apply-job/:job_id'       => 'job_applications#apply', as: :apply_job
+
   get     '/:page'      => 'pages#show'
   root    'pages#show', page: 'home'
 end

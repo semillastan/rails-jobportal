@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
-    <h2>Create Job</h2>
+    <h2>Edit Job</h2>
     <%= form_for(@job, :html => {:class => "form-horizontal"}) do |f| %>
 
       <%= render "shared/jobs/error_messages" %>
@@ -33,7 +33,7 @@
       </div>    
   
 
-      <%= f.submit "Add", :class => "btn btn-primary" %>
+      <%= f.submit "Update", :class => "btn btn-primary" %>
       <%= link_to "Cancel", jobs_path, :class => "btn btn-default" %>
     <% end %>
 

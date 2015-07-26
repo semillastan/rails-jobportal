@@ -1,19 +1,43 @@
 <% provide(:title, "Jobs") %>
 
 <div class="row">
-  <h1>My Job Listing</h1>
+  <div class="col-md-6">
+    <h1>My Job Listing</h1>
 
-  <div class="row">
-    <% @jobs.each do |job| %>
-    <div class="col-sm-6">
-      <div class="thumbnail">
-        <div class="caption">
-          <h4><%= job.job_title %></h4>
-          <p><%= job.description %></p>
+    <div class="row">
+      <% @jobs.each do |job| %>
+      <div class="col-sm-12">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4><%= job.job_title %></h4>
+            <p><%= job.description %></p>
+            <p><strong>Salary range:</strong> <%= job.minimum_salary %> to <%= job.maximum_salary %></p>
+            <p>
+              <%= link_to "Edit", edit_job_path(job), :class => "btn btn-info" %>
+              <%= link_to "Delete", job, method: :delete, data: { confirm: "Are you sure?"}, :class => "btn btn-danger" %>
+            </p>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 
+  <div class="col-md-6">
+    <h1>Pending Applications</h1>
+
+    <div class="row">
+      <% @job_applications.each do |app| %>
+      <div class="col-sm-12">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4><%= app.job.job_title %></h4>
+            <p><%= app.job.description %></p>
+            <p><strong>Salary range: </strong><%= app.job.minimum_salary %> to <%= app.job.maximum_salary %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
