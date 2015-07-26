@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :jobs
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }
-  validates :password, length: {minimum: 8}
   has_secure_password
+  validates :password, length: { minimum: 8 }, allow_blank: true
 end
