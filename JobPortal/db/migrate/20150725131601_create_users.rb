@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string      :last_name
       t.string      :email
       t.string      :password
-      t.has_many    :jobs
 
       t.timestamps null: false
     end

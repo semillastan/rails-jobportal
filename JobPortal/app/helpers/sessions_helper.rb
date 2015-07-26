@@ -21,7 +21,7 @@ module SessionsHelper
     session.delete(:forwarding_url)
   end
 
-  def stored_location
+  def store_location
     session[:forwarding_url] = request.url if request.get?
   end
 

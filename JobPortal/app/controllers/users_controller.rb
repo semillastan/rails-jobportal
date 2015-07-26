@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update, :show]
 
   def index
   end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to Rails Job Portal"
-      redirect_to @user
+      redirect_to(root_url)
     else
       render 'new'
     end

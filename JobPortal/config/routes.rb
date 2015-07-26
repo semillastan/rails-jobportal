@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get     'change-password' => 'users#change_password', as: :change_password
   resources :users
 
+  get     'available-jobs'  => 'jobs#available_jobs', as: :available_jobs
+  resources :jobs
+
   get     '/:page'      => 'pages#show'
   root    'pages#show', page: 'home'
 end

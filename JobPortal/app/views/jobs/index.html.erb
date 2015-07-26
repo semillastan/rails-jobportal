@@ -1,0 +1,19 @@
+<% provide(:title, "Jobs") %>
+
+<div class="row">
+  <h1>My Job Listing</h1>
+
+  <div class="row">
+    <% @jobs.each do |job| %>
+    <div class="col-sm-6">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4><%= job.job_title %></h4>
+          <p><%= job.description %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

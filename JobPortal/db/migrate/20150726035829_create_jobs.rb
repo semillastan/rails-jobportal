@@ -3,9 +3,9 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
       t.belongs_to  :user, index: true
       t.string      :job_title
-      t.string      :occupation_code
-      t.string      :industry_code
       t.string      :description
+      t.integer     :minimum_salary
+      t.integer     :maximum_salary
       t.boolean     :active
       
         
